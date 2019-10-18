@@ -1,13 +1,13 @@
 <html>
     <head>
         <style>
-.output {color: chartreuse;}
+.output {color: palevioletred;}
     </style>
     <!-- LOAD p5.js library so we can use a few of its tools -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
     <script>
         //STORE some data in "global" variables known to all functions
-        var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=rainbow&api-key=MCMGoyVBCAq39CSb9jgG6hrswmemgmr8";
+        var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=candy&api-key=MCMGoyVBCAq39CSb9jgG6hrswmemgmr8";
         var articleCount = 0
         
         //SETUP is a standard way P5 starts a script.
@@ -15,7 +15,7 @@
         //P5 usually used for drawing
             noCanvas();
             //SEND the URL and when the data comes back, run the funtion "gotData"
-            loadJSON(url,gotData);
+            loadJSON(url, gotDATA);
         }
         
         //gotData for now just announces itself
@@ -25,7 +25,7 @@
         }
           </script>
   <body>
- <h1>New York Times API: Articles from all time about rainbows</h1>
+ <h1>New York Times API: Articles from all time about candy</h1>
     <!--a <P> (paragraph) element we will use for the output-->
     <!--its name is "test_output" and it is styled by the class "output" --->
     <p id="test_output" class="output"></p>
