@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+.output {color: palevioletred;}
+    </style>
+    <!-- LOAD p5.js library so we can use a few of its tools -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script>
+        //STORE some data in "global" variables known to all functions
+        var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=candy&api-key=MCMGoyVBCAq39CSb9jgG6hrswmemgmr8";
+        var articleCount = 0
+        
+        //SETUP is a standard way P5 starts a script.
+        function setup (){
+        //P5 usually used for drawing
+            noCanvas();
+            //SEND the URL and when the data comes back, run the funtion "gotData"
+            loadJSON(url, gotDATA);
+        }
+        
+        //gotData for now just announces itself
+        function gotDATA(data) {
+            alert(" WHO DOESNT LIKE CANDY?")
+            var text = ''
+            for (i=0; i <data.response.docs.length; i++) {
+                text = text + '<br/>' + '<h3/>' + data.response.docs[i].headline.main + '<br/>' + data.response.docs[i].snippet
+            }
+        document.getElementById("test_output").innerHTML = text
+        }
+          </script>
+  <body>
+ <h1>New York Times API: Articles from all time about candy</h1>
+    <!--a <P> (paragraph) element we will use for the output-->
+    <!--its name is "test_output" and it is styled by the class "output" --->
+    <p id="test_output" class="output"></p>
+</body>
+</head>
+</html>
